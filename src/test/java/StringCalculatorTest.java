@@ -18,4 +18,15 @@ public class StringCalculatorTest {
         // Assert
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testOneNumber() {
+        // Arrange
+        int expected = 1;
+        StringCalculator stringCalculator = new StringCalculator();
+        // Act
+        int actual = stringCalculator.Add("1");
+        // Assert
+        assertEquals(expected, actual);
+    }
 }
