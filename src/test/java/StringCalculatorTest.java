@@ -58,7 +58,7 @@ public class StringCalculatorTest {
         int expected = 6;
         StringCalculator stringCalculator = new StringCalculator();
         // Act
-        int actual = stringCalculator.Add("“1\n2,3");
+        int actual = stringCalculator.Add("1\n2,3");
         // Assert
         assertEquals(expected, actual);
     }
