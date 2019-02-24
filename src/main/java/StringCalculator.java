@@ -6,8 +6,9 @@ public class StringCalculator {
 
         if (!numbers.contains(",")) {
             return Integer.parseInt(numbers);
+        } else {
+            String[] parts = numbers.split(",");
+            return Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]);
         }
-
-        throw new java.lang.UnsupportedOperationException("Not supported yet.");
     }
 }
