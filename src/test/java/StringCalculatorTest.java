@@ -129,4 +129,16 @@ public class StringCalculatorTest {
         // Assert
         assertEquals(expected, actual);
     }
+
+
+    @Test
+    public void testMultipleLongerDelimitersSupport() {
+        // Arrange
+        int expected = 6;
+        StringCalculator stringCalculator = new StringCalculator();
+        // Act
+        int actual = stringCalculator.Add("//[*][nnn]\n1*2nnn3");
+        // Assert
+        assertEquals(expected, actual);
+    }
 }
