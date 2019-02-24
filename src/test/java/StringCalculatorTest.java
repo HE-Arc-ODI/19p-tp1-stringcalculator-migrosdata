@@ -29,4 +29,15 @@ public class StringCalculatorTest {
         // Assert
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testTwoNumbers() {
+        // Arrange
+        int expected = 5;
+        StringCalculator stringCalculator = new StringCalculator();
+        // Act
+        int actual = stringCalculator.Add("3,2");
+        // Assert
+        assertEquals(expected, actual);
+    }
 }
