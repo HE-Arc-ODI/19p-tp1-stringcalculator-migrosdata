@@ -1,5 +1,7 @@
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
@@ -80,5 +82,18 @@ public class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
         // Assert
         int actual = stringCalculator.Add("1,2,-2");
+    }
+
+    @Rule
+    public ExpectedException expectedEx = ExpectedException.none();
+
+    @Test
+    public void testWithSeveralNegativeNumbers() throws Exception {
+        // Arrange
+        StringCalculator stringCalculator = new StringCalculator();
+        expectedEx.expect(IllegalArgumentException.class);
+        expectedEx.expectMessage("-4,-5");
+        // Act
+        int actual = stringCalculator.Add("2,-4,-5");
     }
 }
