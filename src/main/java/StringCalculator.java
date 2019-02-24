@@ -15,6 +15,11 @@ public class StringCalculator {
             }
             String[] parts = numbers.split(delimiters);
             for (int i = 0; i < parts.length; i++) {
+                int number = Integer.parseInt(parts[i]);
+
+                if (number < 0) {
+                    throw new IllegalArgumentException(Integer.toString(number));
+                }
                 sum+= Integer.parseInt(parts[i]);
             }
             return sum;
