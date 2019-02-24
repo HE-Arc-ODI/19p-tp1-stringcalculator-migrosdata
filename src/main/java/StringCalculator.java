@@ -8,6 +8,7 @@ public class StringCalculator {
             return Integer.parseInt(numbers);
         } else {
             int sum = 0;
+            StringBuilder errorMessageBuilder = new StringBuilder();
             String delimiters = ",|\n";
             if (numbers.startsWith("//")) {
                 delimiters = numbers.substring(2, numbers.indexOf("\n"));
@@ -18,9 +19,16 @@ public class StringCalculator {
                 int number = Integer.parseInt(parts[i]);
 
                 if (number < 0) {
-                    throw new IllegalArgumentException(Integer.toString(number));
+                    errorMessageBuilder.append(number);
+                    errorMessageBuilder.append(",");
+                    //throw new IllegalArgumentException(Integer.toString(number));
                 }
                 sum+= Integer.parseInt(parts[i]);
+            }
+            if(errorMessageBuilder.length() > 0 ){
+                String errorMessage = errorMessageBuilder.toString();
+                errorMessage = errorMessage.substring(0, errorMessage.length() - 1);
+                throw new IllegalArgumentException(errorMessage);
             }
             return sum;
         }
