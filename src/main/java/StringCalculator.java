@@ -4,6 +4,7 @@ public class StringCalculator {
             return 0;
         }
 
+        //TODO: remove this part
         if (!numbers.contains("\n") && numbers.matches("^[0-9]+")) {
             return Integer.parseInt(numbers);
         } else {
@@ -18,13 +19,17 @@ public class StringCalculator {
             for (int i = 0; i < parts.length; i++) {
                 int number = Integer.parseInt(parts[i]);
 
+                if (number > 1000) {
+                    number = 0;
+                }
+
                 if (number < 0) {
                     errorMessageBuilder.append(number);
                     errorMessageBuilder.append(",");
-                    //throw new IllegalArgumentException(Integer.toString(number));
                 }
-                sum+= Integer.parseInt(parts[i]);
+                sum+= number;
             }
+
             if(errorMessageBuilder.length() > 0 ){
                 String errorMessage = errorMessageBuilder.toString();
                 errorMessage = errorMessage.substring(0, errorMessage.length() - 1);

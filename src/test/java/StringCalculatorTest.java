@@ -103,7 +103,7 @@ public class StringCalculatorTest {
         int expected = 6;
         StringCalculator stringCalculator = new StringCalculator();
         // Act
-        int actual = stringCalculator.Add("1000,6");
+        int actual = stringCalculator.Add("1001,6");
         // Assert
         assertEquals(expected, actual);
     }
