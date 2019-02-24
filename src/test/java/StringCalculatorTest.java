@@ -66,10 +66,10 @@ public class StringCalculatorTest {
     @Test
     public void testDifferentDelimitersSupport() {
         // Arrange
-        int expected = 6;
+        int expected = 3;
         StringCalculator stringCalculator = new StringCalculator();
         // Act
-        int actual = stringCalculator.Add("//;\\n1;2");
+        int actual = stringCalculator.Add("//;\n1;2");
         // Assert
         assertEquals(expected, actual);
     }
