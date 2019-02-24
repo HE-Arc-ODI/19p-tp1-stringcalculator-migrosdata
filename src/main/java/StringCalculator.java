@@ -17,13 +17,17 @@ public class StringCalculator {
             int sum = 0;
             StringBuilder errorMessageBuilder = new StringBuilder();
             String delimiters = ",|\n";
-            if (numbers.startsWith("//")) {
+            if (numbers.startsWith("//[")) {
                 delimiters = numbers.substring(2, numbers.indexOf("\n"));
                 //Coding horror
                 delimiters = delimiters.replace("[","");
-                delimiters = delimiters.replace("]","");
+                delimiters = delimiters.replace("]","|");
                 //TODO: extract method to manage meta character
                 delimiters = delimiters.replace("*", "\\*");
+                delimiters = delimiters.substring(0, delimiters.length() - 1);
+                numbers = numbers.substring(numbers.indexOf("\n") + 1);
+            }  else if (numbers.startsWith("//")) {
+                delimiters = numbers.substring(2, numbers.indexOf("\n"));
                 numbers = numbers.substring(numbers.indexOf("\n") + 1);
             }
             String[] parts = numbers.split(delimiters);
