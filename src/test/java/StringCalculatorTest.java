@@ -40,4 +40,15 @@ public class StringCalculatorTest {
         // Assert
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testUnknownAmountOfNumbers() {
+        // Arrange
+        int expected = 10;
+        StringCalculator stringCalculator = new StringCalculator();
+        // Act
+        int actual = stringCalculator.Add("3,2,1,1,2,1");
+        // Assert
+        assertEquals(expected, actual);
+    }
 }
