@@ -96,4 +96,15 @@ public class StringCalculatorTest {
         // Act
         int actual = stringCalculator.Add("2,-4,-5");
     }
+
+    @Test
+    public void testNumberBiggerThan1000() {
+        // Arrange
+        int expected = 6;
+        StringCalculator stringCalculator = new StringCalculator();
+        // Act
+        int actual = stringCalculator.Add("1000,6");
+        // Assert
+        assertEquals(expected, actual);
+    }
 }
