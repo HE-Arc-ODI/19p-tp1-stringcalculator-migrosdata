@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 public class StringCalculatorTest {
     @Before
-    public void setup(){
+    public void setup() {
     }
 
     @Test
@@ -72,5 +72,13 @@ public class StringCalculatorTest {
         int actual = stringCalculator.Add("//;\n1;2");
         // Assert
         assertEquals(expected, actual);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithOneNegativeNumber() {
+        // Arrange
+        StringCalculator stringCalculator = new StringCalculator();
+        // Assert
+        int actual = stringCalculator.Add("1,2,-2");
     }
 }
