@@ -1,3 +1,9 @@
+/**
+ * The class add numbers stored in a string
+ * @author Antoine Induni
+ *
+ *  this code isn't refactored!!
+ */
 public class StringCalculator {
     public int Add(String numbers) {
         if(numbers != null && numbers.isEmpty()) {
@@ -13,6 +19,11 @@ public class StringCalculator {
             String delimiters = ",|\n";
             if (numbers.startsWith("//")) {
                 delimiters = numbers.substring(2, numbers.indexOf("\n"));
+                //Coding horror
+                delimiters = delimiters.replace("[","");
+                delimiters = delimiters.replace("]","");
+                //TODO: extract method to manage meta character
+                delimiters = delimiters.replace("*", "\\*");
                 numbers = numbers.substring(numbers.indexOf("\n") + 1);
             }
             String[] parts = numbers.split(delimiters);
